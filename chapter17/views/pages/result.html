@@ -1,0 +1,17 @@
+{% extends "pages/layout.html" %}
+{% block title %}簡単な計算{% endblock title %}
+{% block content %}
+<div class="container">
+    <br/>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            {% if result %} {# Contextにresultが存在するか? #}
+            <h3>結果 = {{result}}</h3> {# resultをHTMLに出力する #}
+            {% endif %}
+            <form action="/sample/form" method="get">
+                <button type="submit" class="btn btn-primary mb-3">戻る</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "pages/layout/layout.html" %}
+{% block title %}商品登録{% endblock title %}
+{% block head %}
+{{ super() }}
+{% endblock head %}
+{% block content %}
+<div class="container">
+    <div align="center">
+        <div class="col-md-auto"><h2>登録完了</h2></div>
+        <table class="table">
+            <tr><th class="table-success">商品番号</th><td>{{new_product.id}}</td></tr>
+            <tr><th class="table-success">商品名</th><td>{{new_product.name}}</td></tr>
+            <tr><th class="table-success">単価</th><td>{{new_product.price}}</td></tr>
+            <tr><th class="table-success">カテゴリ</th><td>{{new_product.category_name}}</td></tr>
+        </table>
+    </div>
+</div>
+{% endblock content %}

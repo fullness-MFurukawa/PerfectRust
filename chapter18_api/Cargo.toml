@@ -1,0 +1,23 @@
+[package]
+name = "chapter18_api"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = { version = "4.3.0", features = ["openssl"] }
+#actix-session = { version="0.7.2" , features = ["cookie-session"] }
+actix-session = { version="0.7.2" ,    features = ["redis-rs-session"]}
+serde       =   { version = "1.0.152", features = ["derive"] }
+openssl     =   { version = "0.10.41", features = ["v110"] }
+sea-orm     =   { version = "0.10.7" , features=["sqlx-postgres" , "runtime-tokio-rustls" , "macros"] , default-features = false}
+mime        =   "0.3.16"
+env_logger  =   "0.10.0"
+log         =   "0.4.17"
+anyhow      =   "1.0.68"
+thiserror   =   "1.0.38"
+async-trait =   "0.1.62"
+rusty-money =   { version = "0.4.1" , features = ["iso", "crypto"] }
+chrono      =   "0.4.23" # ISO8601に準拠した日付・時間
+chapter18_lib = {git = "https://github.com/fullness-MFurukawa/chapter18_lib" , rev="492694d" }

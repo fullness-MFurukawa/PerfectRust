@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <title>{% block title %}{% endblock title %}</title>
+    {% endblock head %}
+</head>
+<body>
+<div id="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">サンプルWebアプリケーション(Actix-Web&SeaORM)</a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href=""></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=""></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<br/>
+<div class="content">
+    <div class="row justify-content-md-center">
+        <div class="col-xs-2"></div>
+            <div class="col-md-auto">
+                <form action="/web_sample/login" method="post">
+                    <div class="form-group">
+                        <div class="mb-4">
+                            <input type="text" class="form-control is-invalid" id="name" name="name"  placeholder="ユーザー名">
+                            {%if errors['name'] %}<div class="invalid-feedback">{{errors['name']}}</div>{% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-4">
+                            <input type="password" class="form-control is-invalid" id="password" name="password"  placeholder="パスワード">
+                            {%if errors['password'] %}<div class="invalid-feedback">{{errors['password']}}</div>{% endif %}
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary mb-3">ログイン</button>
+                    </div>
+                    <br/>
+                    <div class="text-danger">{%if error %}{{error}}{% endif %}</div>
+                </form>
+            </div>
+        <div class="col-xs-2"></div>
+    </div>
+</div>
+</body>
+</html>

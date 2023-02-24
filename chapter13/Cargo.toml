@@ -1,0 +1,13 @@
+[package]
+name = "chapter13"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.dev]
+opt-level = 2
+debug-assertions = false
+[dev-dependencies]
+simple_test_case = "1.1.0"
+[dependencies]

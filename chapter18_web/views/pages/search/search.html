@@ -1,0 +1,49 @@
+{% extends "pages/layout/layout.html" %}
+{% block title %}商品検索{% endblock title %}
+{% block head %}
+{{ super() }}
+{% endblock head %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-xs-2"></div>
+        <div class="col-md-auto">
+            <br/>
+            <form class="row g-3" action="/web_sample/search/product" method="post">
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="keyword" name="keyword"  placeholder="キーワード">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">検索</button>
+                </div>
+            </form>
+            <br/>
+            {% if notfound %} <span style="color:red">{{ notfound }}</span> {% endif %}
+            {% if results %}
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">商品番号</th>
+                    <th scope="col">商品名</th>
+                    <th scope="col">単価</th>
+                    <th scope="col">カテゴリ</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.id }}</td>
+                    <td>{{ result.name }}</td>
+                    <td>{{ result.price }}</td>
+                    <td>{{ result.category_name }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+</div>
+{% endblock content %}

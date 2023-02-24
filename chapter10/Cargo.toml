@@ -1,0 +1,12 @@
+[package]
+name = "chapter10"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.68"                                   # 汎用的なResult型、Error型を提供するクレート
+serde = {version="1.0.136",features=["derive"]}     # シリアライズ、デシリアライズ機能を提供するクレート
+serde_json = "1.0.79"                               # JSONデータのシリアライズ、デシリアライズ機能を提供するクレート
+csv = "1.1.6"                                       # CSVファイルアクセス機能を提供するクレート

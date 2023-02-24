@@ -1,0 +1,20 @@
+[package]
+name = "chapter14"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+postgres = "0.19.4"
+r2d2 = "0.8.10"
+r2d2_postgres = "0.18.1"
+anyhow = "1.0.68"
+lombok = "0.3.3"
+once_cell = "1.17.0"
+# 非同期実行のために追加
+tokio = {version="1.24.1" , features=["full"]}
+tokio-postgres = "0.7.7"
+proc-macro2 = "1.0.49"
+async-trait = "0.1.61"
+yaml-rust = "0.4.5"

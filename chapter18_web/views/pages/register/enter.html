@@ -1,0 +1,41 @@
+{% extends "pages/layout/layout.html" %}
+{% block title %}商品登録{% endblock title %}
+{% block head %}
+{{ super() }}
+{% endblock head %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-xs-2"></div>
+        <div class="col-md-auto">
+            <br/>
+            <form action="/web_sample/register/product" method="post">
+                <div class="form-group mb-3">
+                    <span class="form-group-text">商品名</span>
+                    <input type="text" class="form-control is-invalid" id="name" name="name" value="{%if form%}{{form.name}}{%endif%}">
+                    {%if errors['name'] %}<div class="invalid-feedback">{{errors['name']}}</div>{% endif %}
+                </div>
+                <div class="form-group mb-3">
+                    <span class="form-group-text">単価</span>
+                    <input type="number" class="form-control is-invalid" id="price" name="price" value="{%if form%}{{form.price}}{%endif%}">
+                    {%if errors['price'] %}<div class="invalid-feedback">{{errors['price']}}</div>{% endif %}
+                </div>
+                <div class="form-group mb-3">
+                    <span class="form-group-text">カテゴリ</span>
+                    <select class="form-control is-invalid" name="category_id">
+                        {% for category in categories %}
+                        <option value="{{category.id}}">{{category.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary mb-3">登録</button>
+                </div>
+            </form>
+            <br/>
+            {%if exists %}<div class="text-danger">{{ exists }}</div>{% endif %}
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+</div>
+{% endblock content %}

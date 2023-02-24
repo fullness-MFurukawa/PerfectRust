@@ -1,0 +1,37 @@
+{% extends "pages/layout.html" %}
+{% block title %}簡単な計算{% endblock title %}
+{% block head %}
+{{ super() }}
+{% endblock head %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-md-center">
+   <div class="col-xs-1"></div>
+    <div class="col-md-auto">
+      <br/>
+      <!-- formを記述 -->
+      <form action="/sample/calc_form" method="post">
+        <div class="input-group mb-2">
+          <input type="number" class="form-control" id="value1" name="value1">
+        </div>
+        <div class="input-group mb-2">
+          <select name="opt">
+            <option value="1">+</option>
+            <option value="2">-</option>
+            <option value="3">*</option>
+            <option value="4">/</option>
+            <option value="5">%</option>
+          </select>
+        </div>
+        <div class="input-group mb-2">
+          <input type="number" class="form-control" id="value2" name="value2">
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-primary mb-3">計算</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+</div>
+{% endblock content %}
