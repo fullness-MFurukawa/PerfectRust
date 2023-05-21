@@ -74,16 +74,14 @@ pub fn thread_controller_1() {
 #[allow(dead_code)]
 pub fn thread_controller_2() {
     // 合計を求めるスレッドを起動
-    let thd1 = summary_thread_1(String::from("thd1") , vec![ 10 ,20 , 30 , 40 , 50]);
-    let thd2 = summary_thread_1(String::from("thd2")  ,  vec![100 ,200 , 300 , 400 , 500]);
-    // スレッドの終了待ち
-    let result1 = thd1.join()
-        .map_err(|error| panic!("{:?}" , error)).unwrap();
-    let result2 = thd2.join()
-        .map_err(|error| panic!("{:?}" , error)).unwrap();
+    let thd1 = summary_thread_2(String::from("thd1") , vec![ 10 ,20 , 30 , 40 , 50]);
+    let thd2 = summary_thread_2(String::from("thd2")  ,  vec![100 ,200 , 300 , 400 , 500]);
+    // スレッドの終了待ち 2023/05/21　修正
+    let result1 = thd1.map_err(|error| panic!("{:?}" , error)).unwrap().join();
+    let result2 = thd2.map_err(|error| panic!("{:?}" , error)).unwrap().join();
     // 終了結果を出力する
-    println!("thd1の合計値:{}" , result1);
-    println!("thd2の合計値:{}" , result2);
+    println!("thd1の合計値:{}" , result1.unwrap());
+    println!("thd2の合計値:{}" , result2.unwrap());
 }
 
 #[derive(Debug , Default)]

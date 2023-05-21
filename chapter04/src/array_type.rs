@@ -40,8 +40,10 @@ pub fn methods() {
     println!("last() = {}" , array_a.last().unwrap()); // 最後の値を取得する
     array_a.sort(); // ソートする
     println!("sort = {:?}" , array_a);
-    array_a.reverse(); // 逆順ソートする
-    println!("reverse = {:?}" , array_a);
+    // 2023-05-21 変更
+    let mut array_b:[i32 ; 5] = [2 , 3 , 5 , 4 , 1];
+    array_b.reverse(); // 要素を逆に並べ替える
+    println!("reverse = {:?}" , array_b);
 }
 
 /// ### 4-5.配列型

@@ -12,15 +12,16 @@ mod messaging_crossbeam;
 mod asynchronous;
 mod task_controller;
 
-/// 12-8 aync_stdクレート
+/// 12-8 async_stdクレート
 /// リスト12-26 #[async_std:main]アトリビュート
 /// 非同期実行に対応したmain()関数
 #[async_std::main]
 async fn main() {
-    // basic::thread_controller_1(); // シンプルなスレッド   
-    // basic::thread_controller_3(); // メソッド
-    // cross_beam::thread_controller_1();
-    // cross_beam::thread_controller_2();
+    //basic::thread_controller_1(); // シンプルなスレッド   
+    basic::thread_controller_2();   // シンプルなスレッド(Builder)
+    //basic::thread_controller_3(); // メソッド
+    //cross_beam::thread_controller_1();
+    //cross_beam::thread_controller_2();
     //cross_beam::thread_controller_3();
     //cross_beam::thread_controller_4();
     //messaging_std::execute();
